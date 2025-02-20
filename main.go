@@ -138,20 +138,19 @@ func markdownTable(output [][]byte) [][]byte {
 }
 
 func main() {
+	var outfmt = flag.String("format", "unicode", "output format: plain, markdown or unicode")
+	var theme = flag.String("theme", "monokailight", "chroma syntax highlighting theme")
+	flag.Parse()
+
 	data, err := io.ReadAll(os.Stdin)
 	if err != nil {
 		panic(err)
 	}
 
-	var outfmt = flag.String("format","unicode","output format: plain, markdown or unicode")
-	var theme = flag.String("theme", "monokailight", "chroma syntax highlighting theme")
-	flag.Parse()
-
 	parts := bytes.Split(bytes.TrimRight(data, "\n"), []byte("\n"))
-
 	parts = mysqlExplain(parts, *theme)
 
-	switch (*outfmt) {
+	switch *outfmt {
 	case "unicode":
 		parts = unicodeTable(parts)
 	case "markdown":

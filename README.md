@@ -66,6 +66,10 @@ mysql> WITH RECURSIVE cte(n) AS (SELECT 1 n UNION ALL SELECT n+1 FROM cte WHERE 
 5 rows in set (0.00 sec)
 ```
 
+Note that I tested this with `gnome-terminal` and there it looks better than how GitHub renders Markdown.
+
+![alt text](image-2.png)
+
 ### Markdown tables
 
 This makes it easy to copy-paste tables into markdown documentation.

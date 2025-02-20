@@ -260,6 +260,33 @@ Usage of explainify:
     	chroma syntax highlighting theme (default "monokailight")
 ```
 
+## Building
+
+The `explainify` binary can be build by checking out this repository and running `go build`.
+
+```
+% git clone https://github.com/dveeden/explainify.git
+Cloning into 'explainify'...
+remote: Enumerating objects: 17, done.
+remote: Counting objects: 100% (17/17), done.
+remote: Compressing objects: 100% (13/13), done.
+remote: Total 17 (delta 4), reused 16 (delta 3), pack-reused 0 (from 0)
+Receiving objects: 100% (17/17), 142.67 KiB | 2.80 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+% cd explainify
+% go build
+go: downloading github.com/alecthomas/chroma/v2 v2.15.0
+go: downloading golang.org/x/text v0.22.0
+go: downloading github.com/dlclark/regexp2 v1.11.5
+dveeden@nas2:~/explainify % ./explainify -h
+Usage of ./explainify:
+  -format string
+    	output format: plain, markdown or unicode (default "unicode")
+  -theme string
+    	chroma syntax highlighting theme (default "monokailight")
+```
+
 ## Related
 
 - [Bug #77279: Use unicode to draw borders (contribution)](https://bugs.mysql.com/bug.php?id=77279)
+- [Bug #116573: Allow plugins to do formatting of output in MySQL Shell](https://bugs.mysql.com/bug.php?id=116573)
